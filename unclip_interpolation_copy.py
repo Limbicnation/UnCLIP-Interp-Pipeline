@@ -21,8 +21,8 @@ def main(interpolation_factor, steps):
 
     # Define local image paths to interpolate
     image_paths = [
-        '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/cyberpunk.png',
-        '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/painting.jpeg'
+        '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/img1.png',
+        '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/img2.jpg'
     ]
 
     # Load images
@@ -35,16 +35,12 @@ def main(interpolation_factor, steps):
 
     # Use the interpolation_factor to control interpolation strength
     # and use a loop to perform multiple interpolation steps.
-    for i in range(steps):
+    for i in range(steps):  # Adjust the loop range to run the interpolation process
         output = pipe(image=images, generator=generator)
 
-        # Create a folder to store the output images
-        if not os.path.exists('output'):
-            os.makedirs('output')
-
-        # Save images in the 'output' directory
-        for j, image in enumerate(output.images):
-            image.save(f"output/output_{interpolation_factor}_interp_step_{i}_image_{j}.jpg")
+        # Save the interpolated image
+        image = output.images[0]  # The first image represents the original image (index 0)
+        image.save(f"output/output_{interpolation_factor}_interp_step_{i}_image_0.jpg")
 
 if __name__ == "__main__":
     # Parse command-line arguments
