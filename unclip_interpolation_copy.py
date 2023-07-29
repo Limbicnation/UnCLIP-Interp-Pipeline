@@ -15,8 +15,15 @@ pipe = DiffusionPipeline.from_pretrained(
 )
 
 pipe.to(device)
-# define image to interpolate
-images = [Image.open('/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/art.jpg'), Image.open('/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/bear6.png')]
+
+# Define image paths to interpolate
+image_paths = [
+    '/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/art.jpg',
+    '/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/bear6.png'
+]
+
+# Load images
+images = [Image.open(path) for path in image_paths]
 
 # Set the seed value for the generator
 seed = 68132
@@ -24,12 +31,14 @@ interpolation_methods = ['nearest', 'lanczos', 'bicubic']
 
 generator = torch.Generator(device=device).manual_seed(seed)
 
-for steps in [16]:
+# set the number of steps here
+for steps in [8]:
     output = pipe(image=images, steps=steps, generator=generator)
 
-    # create a folder to store the output images
+    # Create a folder to store the output images
     if not os.path.exists('output'):
         os.makedirs('output')
-    # save images indirectory
+
+    # Save images in the 'output' directory
     for i, image in enumerate(output.images):
-        image.save(f"/media/ws-ml/linux-drive/linux_projects/ml_projects/Output/UnCLIP-Interep/output_10_{steps}_steps_{i}.jpg")
+        image.save(f"output/output_10_{steps}_steps_{i}.jpg")
