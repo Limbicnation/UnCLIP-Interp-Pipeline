@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
+# Ignore files and folders generated during development
+output/
 
 # C extensions
 *.so
