@@ -5,6 +5,7 @@ __pycache__/
 .idea/
 # Ignore files and folders generated during development
 output/
+upscaled/
 
 # C extensions
 *.so
