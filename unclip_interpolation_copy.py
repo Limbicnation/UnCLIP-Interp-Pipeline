@@ -18,8 +18,8 @@ pipe.to(device)
 
 # Define image paths to interpolate
 image_paths = [
-    '/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/art.jpg',
-    '/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/bear6.png'
+    '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/art.jpg',
+    '/media/ws-ml/linux-drive/linux_projects/ml_projects/images/UnClipInterp/bear6.png'
 ]
 
 # Load images
