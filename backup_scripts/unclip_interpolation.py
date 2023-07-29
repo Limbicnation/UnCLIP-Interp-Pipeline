@@ -16,7 +16,7 @@ pipe = DiffusionPipeline.from_pretrained(
 
 pipe.to(device)
 # define image to interpolate
-images = [Image.open('/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/art.jpg'), Image.open('/media/ws-ml/linux-drive/linux_projects/ml_projects/UnCLIP-Interp-Pipeline/bear6.png')]
+images = [Image.open('/art.jpg'), Image.open('/bear6.png')]
 
 # Set the seed value for the generator
 seed = 68132
@@ -28,8 +28,8 @@ for steps in [16]:
     output = pipe(image=images, steps=steps, generator=generator)
 
     # create a folder to store the output images
-    if not os.path.exists('output'):
-        os.makedirs('output')
+    if not os.path.exists('../output'):
+        os.makedirs('../output')
     # save images indirectory
     for i, image in enumerate(output.images):
         image.save(f"/media/ws-ml/linux-drive/linux_projects/ml_projects/Output/UnCLIP-Interep/output_10_{steps}_steps_{i}.jpg")
