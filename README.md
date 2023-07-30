@@ -60,3 +60,6 @@ Enjoy exploring UnCLIP-Interp!
 ```
 Please make sure to adapt the instructions to your specific needs if required.
 ```
+## To Do List
+- [ ] Add RIFE interapolation
+- [ ] Add Real-ESRGAN
