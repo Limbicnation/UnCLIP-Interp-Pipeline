@@ -3,6 +3,9 @@
 This repository contains a diffusion pipeline for interpolating image embeddings using polynomial interpolation between two images or an `image_embeddings` tensor. The pipeline leverages the `UnCLIPImageVariationPipeline` from the Hugging Faces Diffusers library to achieve image interpolation with control over interpolation strength (`--interpolation_factor`) and the number of interpolation steps (`--steps`).
 
 # Define Images to Interpolate
+| Input Image | Interpolated Image |
+|:-------------:|:--------------:|
+|![Image1](https://github.com/Limbicnation/UnCLIP-Interp-Pipeline/blob/main/images/img2.jpg) | ![Image2](https://github.com/Limbicnation/UnCLIP-Interp-Pipeline/blob/main/images/tree_upscaled_256.gif) |
 
 | Input Image | Interpolated Image |
 |:-------------:|:--------------:|
